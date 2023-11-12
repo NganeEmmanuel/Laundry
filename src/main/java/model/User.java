@@ -1,6 +1,7 @@
 package model;
 
 import helper.Authority;
+import helper.UserStatus;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -14,13 +15,32 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String role;  // manager, receptionist, etc
+    private String phoneNumber;
+    private String city;
+    private String address1;
+    private String address2;
     private List<Authority> authority;
-    private String status;
-    @Column(name = "created_date")
-    private Date created;
-    @Column(name = "last_updated")
-    private Date updated;
+    private UserStatus status;
+    private Date createdDate;
+    private Date lastUpdated;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "user")
+    private List<Order> order;
+
+    public User(String name, String email, String password, String phoneNumber, String city, String address1, String address2, List<Authority> authority, UserStatus status, Date createdDate, Date lastUpdated) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.city = city;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.authority = authority;
+        this.status = status;
+        this.createdDate = createdDate;
+        this.lastUpdated = lastUpdated;
+    }
+
+
 
     public long getId() {
         return id;
@@ -54,13 +74,6 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     public List<Authority> getAuthority() {
         return authority;
@@ -70,28 +83,76 @@ public class User {
         this.authority = authority;
     }
 
-    public String getStatus() {
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public UserStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(UserStatus status) {
         this.status = status;
     }
-
-    public Date getCreated() {
-        return created;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public void setCreated(Date created) {
-        this.created = created;
+    public Date getlastUpdated() {
+        return lastUpdated;
     }
 
-    public Date getUpdated() {
-        return updated;
+    public void setlastUpdated(Date lastupdated) {
+        this.lastUpdated = lastupdated;
     }
 
-    public void setUpdated(Date updated) {
-        this.updated = updated;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", city='" + city + '\'' +
+                ", address1='" + address1 + '\'' +
+                ", address2='" + address2 + '\'' +
+                ", authority=" + authority +
+                ", status=" + status +
+                ", createdDate=" + createdDate +
+                ", lastUpdated=" + lastUpdated +
+                '}';
     }
-
 }
