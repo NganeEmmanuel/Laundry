@@ -7,13 +7,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class LaundryApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(LaundryApplication.class.getResource("startLoad-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 745, 423);
+        stage.setTitle("");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

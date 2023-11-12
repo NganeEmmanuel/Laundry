@@ -16,4 +16,6 @@ module com.laundry.laundry {
 
     opens com.laundry.laundry to javafx.fxml;
     exports com.laundry.laundry;
+    exports com.laundry.laundry.controller;
+    opens com.laundry.laundry.controller to javafx.fxml;
 }

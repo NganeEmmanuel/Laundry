@@ -1,7 +1,7 @@
-package model;
+package com.laundry.laundry.model;
 
-import helper.Authority;
-import helper.UserStatus;
+import com.laundry.laundry.helper.Authority;
+import com.laundry.laundry.helper.UserStatus;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -25,6 +25,8 @@ public class User {
     private Date lastUpdated;
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "user")
     private List<Order> order;
+
+    public User(){}
 
     public User(String name, String email, String password, String phoneNumber, String city, String address1, String address2, List<Authority> authority, UserStatus status, Date createdDate, Date lastUpdated) {
         this.name = name;

@@ -1,6 +1,6 @@
-package model;
+package com.laundry.laundry.model;
 
-import helper.ServiceStatus;
+import com.laundry.laundry.helper.ServiceStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +17,7 @@ public class Service {
     private ServiceStatus serviceStatus;
     private Date orderDate;
     private Date updatedDate;
+    public Service(){}
 
     public Service(String name, ServiceStatus serviceStatus, Date orderDate, Date updatedDate) {
         this.name = name;
