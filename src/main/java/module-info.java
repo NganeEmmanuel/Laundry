@@ -10,7 +10,7 @@ module com.laundry.laundry {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
-    requires fontawesomefx;
+    requires de.jensd.fx.glyphs.fontawesome;
     requires jakarta.annotation;
     requires jakarta.persistence;
 

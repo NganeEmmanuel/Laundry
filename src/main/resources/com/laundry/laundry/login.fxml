@@ -8,14 +8,72 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="604.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.laundry.laundry.controller.LoginController">
    <children>
       <AnchorPane layoutX="140.0" layoutY="156.0" prefHeight="604.0" prefWidth="779.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane layoutX="8.0" layoutY="8.0" prefHeight="604.0" prefWidth="313.0" styleClass="left-sidebar" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="466.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane layoutX="8.0" layoutY="8.0" prefHeight="604.0" prefWidth="313.0" styleClass="left-sidebar" stylesheets="@css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="466.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="18.0" layoutY="84.0" text="IMPRESS PRESSING">
+                     <font>
+                        <Font name="Bell MT Bold" size="30.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endY="0.3175355450236967" startY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.696881115436554" green="0.06335282325744629" blue="0.8552631735801697" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label layoutX="58.0" layoutY="120.0" text="The Laundry House of Class">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView glyphName="BUILDING" layoutX="71.0" layoutY="354.0" size="200.0">
+                     <fill>
+                        <LinearGradient endX="0.990521327014218" endY="1.0" startX="0.4312796208530806" startY="0.7061611374407584">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.4562733471393585" green="0.12460000067949295" blue="0.8899999856948853" opacity="0.5" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIconView>
+                  <Label layoutX="37.0" layoutY="422.0" text="Laundry made simple. Pick and drop">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="58.0" layoutY="442.0" text="All in one management system">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
             <AnchorPane layoutX="313.0" layoutY="1.0" prefHeight="604.0" prefWidth="466.0">
                <children>
                   <Label layoutX="58.0" layoutY="25.0" styleClass="h1" stylesheets="@css/login.css" text="Sign In to your Account">

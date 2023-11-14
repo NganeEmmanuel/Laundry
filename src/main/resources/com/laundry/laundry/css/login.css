@@ -22,7 +22,7 @@
     -fx-text-fill: #111111;
 }
 .hyperlinks:hover{
-    -fx-color: #e80ae4;
+    -fx-text-fill: #e80ae4;
 }
 .login-btn{
     -fx-background-color: linear-gradient(to top right, #7e03c6, #e80ae4);
@@ -30,6 +30,6 @@
     -fx-text-fill: #fff;
     -fx-cursor: hand;
 }
-.login-btn:focused{
+.login-btn:hover{
     -fx-background-color: linear-gradient(to bottom left, #7e03c6, #e80ae4);
 }
