@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "orders")
 public class Order {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -14,8 +15,11 @@ public class Order {
     private User user;
     @ManyToOne
     private Service service; //E.G washing, wahsing and drying, etc
+    @Column(name = "order_date")
     private Date orderDate;
+    @Column(name = "updated_date")
     private Date updatedDate;
+    @Column(name = "order_status")
     private OrderStatus orderStatus;
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Employee> updatedBy;

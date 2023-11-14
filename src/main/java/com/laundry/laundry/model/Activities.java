@@ -1,26 +1,25 @@
 package com.laundry.laundry.model;
 
 import com.laundry.laundry.helper.ActivityAction;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.util.Date;
-
+@Entity
 public class Activities {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @ManyToOne
     private Employee employee;
     private String table; //Order, Employee, Users, Service
-    private Object objectId = new Order();
+    @Column(name = "object_id")
+    private int objectId;
     private ActivityAction action;
     private String description;
+    @Column(name = "action_date")
     private Date actionDate;
     public Activities(){}
 
-    public Activities(Employee employee, String table, Object objectId, ActivityAction action, String description, Date actionDate) {
+    public Activities(Employee employee, String table, int objectId, ActivityAction action, String description, Date actionDate) {
         this.employee = employee;
         this.table = table;
         this.objectId = objectId;
@@ -53,11 +52,11 @@ public class Activities {
         this.table = table;
     }
 
-    public Object getObjectId() {
+    public int getObjectId() {
         return objectId;
     }
 
-    public void setObjectId(Object objectId) {
+    public void setObjectId(int objectId) {
         this.objectId = objectId;
     }
 

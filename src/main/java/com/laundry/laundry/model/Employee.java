@@ -1,20 +1,27 @@
 package com.laundry.laundry.model;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
 public class Employee {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String email;
+    @Column(name = "phone_number")
     private String phoneNumber;
     private String city;
     private String address1;
     private String address2;
     private String role;  // manager, receptionist, etc
-    private Date orderDate;
-    private Date updatedDate;
+    @Column(name = "created_date")
+    private Date createdDate;
+    @Column(name = "last_updated")
+    private Date lastUpdated;
     public Employee() {}
-    public Employee(String name, String email, String phoneNumber, String city, String address1, String address2, String role, Date orderDate, Date updatedDate) {
+    public Employee(String name, String email, String phoneNumber, String city, String address1, String address2, String role, Date createdDate, Date lastUpdated) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -22,8 +29,8 @@ public class Employee {
         this.address1 = address1;
         this.address2 = address2;
         this.role = role;
-        this.orderDate = orderDate;
-        this.updatedDate = updatedDate;
+        this.createdDate = createdDate;
+        this.lastUpdated = lastUpdated;
     }
 
 
@@ -91,20 +98,20 @@ public class Employee {
         this.role = role;
     }
 
-    public Date getOrderDate() {
-        return orderDate;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public Date getUpdatedDate() {
-        return updatedDate;
+    public Date getLastUpdated() {
+        return lastUpdated;
     }
 
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
 
     @Override
@@ -118,8 +125,8 @@ public class Employee {
                 ", address1='" + address1 + '\'' +
                 ", address2='" + address2 + '\'' +
                 ", role='" + role + '\'' +
-                ", orderDate=" + orderDate +
-                ", updatedDate=" + updatedDate +
+                ", createdDate=" + createdDate +
+                ", lastUpdated=" + lastUpdated +
                 '}';
     }
 }

@@ -1,10 +1,7 @@
 package com.laundry.laundry.model;
 
 import com.laundry.laundry.helper.ServiceStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -13,17 +10,19 @@ public class Service {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-
+    @Column(name = "service_status")
     private ServiceStatus serviceStatus;
-    private Date orderDate;
-    private Date updatedDate;
+    @Column(name = "created_date")
+    private Date createdDate;
+    @Column(name = "last_updated")
+    private Date lastUpdated;
     public Service(){}
 
-    public Service(String name, ServiceStatus serviceStatus, Date orderDate, Date updatedDate) {
+    public Service(String name, ServiceStatus serviceStatus, Date createdDate, Date lastUpdated) {
         this.name = name;
         this.serviceStatus = serviceStatus;
-        this.orderDate = orderDate;
-        this.updatedDate = updatedDate;
+        this.createdDate = createdDate;
+        this.lastUpdated = lastUpdated;
     }
 
     public int getId() {
@@ -50,20 +49,20 @@ public class Service {
         this.serviceStatus = serviceStatus;
     }
 
-    public Date getOrderDate() {
-        return orderDate;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public Date getUpdatedDate() {
-        return updatedDate;
+    public Date getLastUpdated() {
+        return lastUpdated;
     }
 
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
 
     @Override
@@ -72,8 +71,8 @@ public class Service {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", serviceStatus=" + serviceStatus +
-                ", orderDate=" + orderDate +
-                ", updatedDate=" + updatedDate +
+                ", createdDate=" + createdDate +
+                ", lastUpdated=" + lastUpdated +
                 '}';
     }
 }

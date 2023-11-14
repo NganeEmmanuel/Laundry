@@ -11,10 +11,15 @@ module com.laundry.laundry {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires de.jensd.fx.glyphs.fontawesome;
-    requires jakarta.annotation;
     requires jakarta.persistence;
+    requires org.hibernate.orm.core;
 
-    opens com.laundry.laundry to javafx.fxml;
+
+    exports com.laundry.laundry.model;
+    exports com.laundry.laundry.helper;
+    opens com.laundry.laundry.model;
+    opens com.laundry.laundry;
+//    opens com.laundry.laundry to javafx.fxml;
     exports com.laundry.laundry;
     exports com.laundry.laundry.controller;
     opens com.laundry.laundry.controller to javafx.fxml;

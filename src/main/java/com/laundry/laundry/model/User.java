@@ -15,13 +15,16 @@ public class User {
     private String name;
     private String email;
     private String password;
+    @Column(name = "phone_number")
     private String phoneNumber;
     private String city;
     private String address1;
     private String address2;
     private List<Authority> authority;
     private UserStatus status;
+    @Column(name = "created_date")
     private Date createdDate;
+    @Column(name = "last_updated")
     private Date lastUpdated;
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "user")
     private List<Order> order;
