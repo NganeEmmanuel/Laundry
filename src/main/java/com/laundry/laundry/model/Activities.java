@@ -10,6 +10,7 @@ public class Activities {
     private long id;
     @ManyToOne
     private Employee employee;
+    @Column(name = "table_name")
     private String table; //Order, Employee, Users, Service
     @Column(name = "object_id")
     private int objectId;
