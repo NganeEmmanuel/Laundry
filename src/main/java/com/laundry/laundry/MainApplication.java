@@ -1,6 +1,6 @@
 package com.laundry.laundry;
 
-import com.laundry.laundry.dao.EmployeeDao;
+import com.laundry.laundry.dao.persistentDao.EmployeeDao;
 import com.laundry.laundry.model.Employee;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Optional;
 
 public class MainApplication extends Application {
@@ -23,6 +22,8 @@ public class MainApplication extends Application {
         emp.setEmail("test@gmail.com");
         emp = employeeDao.update(emp);
         System.out.println(emp.toString());
+
+
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 779, 604);
         stage.setTitle("Laundry Management System");

@@ -1,5 +1,6 @@
 package com.laundry.laundry.model;
 
+import com.laundry.laundry.helper.UserStatus;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -16,6 +17,9 @@ public class Employee {
     private String address1;
     private String address2;
     private String role;  // manager, receptionist, etc
+
+    private UserStatus status;
+
     @Column(name = "created_date")
     private Date createdDate;
     @Column(name = "last_updated")
@@ -29,6 +33,7 @@ public class Employee {
         this.address1 = address1;
         this.address2 = address2;
         this.role = role;
+        this.status = UserStatus.ACTIVE;
         this.createdDate = createdDate;
         this.lastUpdated = lastUpdated;
     }
@@ -96,6 +101,13 @@ public class Employee {
 
     public void setRole(String role) {
         this.role = role;
+    }
+    public UserStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(UserStatus status) {
+        this.status = status;
     }
 
     public Date getCreatedDate() {

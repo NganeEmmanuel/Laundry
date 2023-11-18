@@ -1,5 +1,7 @@
-package com.laundry.laundry.dao.persistentInterfaces;
+package com.laundry.laundry.dao.persistentInterfaces.persistentUnit;
 
+
+import org.hibernate.query.Query;
 
 import java.util.List;
 import java.util.Optional;
@@ -71,5 +73,30 @@ public interface LaundryPersistentUnit <T> {
      * @return object of class Type
      */
     public T update(T t);
+
+    /**
+     *
+     * @param t the object to be deleted from the database
+     * @return returns the object that has been deleted
+     *
+     *@apiNote this function does not remove the row in the database table but rather changes the status so that it is marked as deleted. to completely remove the row, please use the remove() function
+     */
+    public T delete(T t);
+
+    /**
+     *
+     * @param t the object to be deleted from the database
+     * @return returns the object that has been deleted
+     * @apiNote completely remove the row of from the database
+     */
+    public T remove(T t);
+
+    /**
+     *
+     * @param query query to  be executed e.g., ("select u from users u where u.id = 1")
+     * @return  an object of the class type
+     */
+    public Optional<List<T>> runQuery(String query);
+    public void close();
 
 }

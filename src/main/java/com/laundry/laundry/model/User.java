@@ -31,7 +31,7 @@ public class User {
 
     public User(){}
 
-    public User(String name, String email, String password, String phoneNumber, String city, String address1, String address2, List<Authority> authority, UserStatus status, Date createdDate, Date lastUpdated) {
+    public User(String name, String email, String password, String phoneNumber, String city, String address1, String address2, List<Authority> authority, Date createdDate, Date lastUpdated) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -40,7 +40,7 @@ public class User {
         this.address1 = address1;
         this.address2 = address2;
         this.authority = authority;
-        this.status = status;
+        this.status = UserStatus.ACTIVE;
         this.createdDate = createdDate;
         this.lastUpdated = lastUpdated;
     }
