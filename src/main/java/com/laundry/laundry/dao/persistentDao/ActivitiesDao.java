@@ -1,10 +1,9 @@
 package com.laundry.laundry.dao.persistentDao;
 
-import com.laundry.laundry.dao.persistentInterfaces.entityPersist.UserPersist;
+import com.laundry.laundry.dao.persistentInterfaces.entityPersist.ActivitiesPersist;
 import com.laundry.laundry.dao.persistentinit.LaundryPersistentDao;
 import com.laundry.laundry.helper.Merger;
-import com.laundry.laundry.helper.UserStatus;
-import com.laundry.laundry.model.User;
+import com.laundry.laundry.model.Activities;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
@@ -12,110 +11,105 @@ import java.util.List;
 import java.util.Optional;
 
 @SuppressWarnings("unchecked")
-public class UserDao implements UserPersist {
+public class ActivitiesDao implements ActivitiesPersist {
     private final LaundryPersistentDao laundryPersistentDao;
     private final EntityManager entityManager;
 
-    public UserDao() {
+    public ActivitiesDao() {
         laundryPersistentDao = new LaundryPersistentDao();
         this.entityManager = laundryPersistentDao.getEntityManager();
     }
 
-
     @Override
-    public User add(User user) {
+    public Activities add(Activities activities) {
         entityManager.getTransaction().begin();
-        entityManager.persist(user);
+        entityManager.persist(activities);
         entityManager.getTransaction().commit();
-        return user;
+        return activities;
     }
 
     @Override
-    public Optional<User> findById(long id) {
+    public Optional<Activities> findById(long id) {
         entityManager.getTransaction().begin();
-        return Optional.ofNullable(entityManager.find(User.class, id));
+        return Optional.ofNullable(entityManager.find(Activities.class, id));
     }
 
     @Override
-    public Optional<User> findBy(String columnName, String value) {
+    public Optional<Activities> findBy(String columnName, String value) {
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("SELECT u FROM users u WHERE " + columnName + " = :value");
+        Query query = entityManager.createQuery("select a from Activities a where " + columnName + " = :value");
         query.setParameter("value", value);
-        return (Optional<User>) query.getSingleResult();
+        return (Optional<Activities>) query.getSingleResult();
     }
 
     @Override
-    public Optional<List<User>> findBy(String columnName, String value, int resultMax) {
+    public Optional<List<Activities>> findBy(String columnName, String value, int resultMax) {
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("SELECT u FROM users u WHERE " + columnName + " = :value");
+        Query query = entityManager.createQuery("select a from Activities a where " + columnName + " = :value");
         query.setParameter("value", value);
         if(resultMax > 0) query.setMaxResults(resultMax);
         return Optional.ofNullable(query.getResultList());
     }
 
     @Override
-    public Optional<List<User>> findBy(String columnName, long value, int resultMax) {
+    public Optional<List<Activities>> findBy(String columnName, long value, int resultMax) {
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("SELECT u FROM users u WHERE " + columnName + " = :value");
+        Query query = entityManager.createQuery("select a from Activities a where " + columnName + " = :value");
         query.setParameter("value", value);
         if(resultMax > 0) query.setMaxResults(resultMax);
         return Optional.ofNullable(query.getResultList());
     }
 
     @Override
-    public Optional<List<User>> findBy(String columnName, int value, int resultMax) {
+    public Optional<List<Activities>> findBy(String columnName, int value, int resultMax) {
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("SELECT u FROM users u WHERE " + columnName + " = :value");
+        Query query = entityManager.createQuery("select a from Activities a where " + columnName + " = :value");
         query.setParameter("value", value);
         if(resultMax > 0) query.setMaxResults(resultMax);
         return Optional.ofNullable(query.getResultList());
     }
 
     @Override
-    public Optional<List<User>> findBy(String columnName, Object value, int resultMax) {
+    public Optional<List<Activities>> findBy(String columnName, Object value, int resultMax) {
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("SELECT u FROM users u WHERE " + columnName + " = :value");
+        Query query = entityManager.createQuery("select a from Activities a where " + columnName + " = :value");
         query.setParameter("value", value);
         if(resultMax > 0) query.setMaxResults(resultMax);
         return Optional.ofNullable(query.getResultList());
     }
 
     @Override
-    public User update(User user) {
+    public Activities update(Activities activities) {
         entityManager.getTransaction().begin();
-        Optional<User> userToUpdate = findById(user.getId());
-        userToUpdate.ifPresent(value -> Merger.merge(value, user));
+        Optional<Activities> activitiesToUpdate = findById(activities.getId());
+        activitiesToUpdate.ifPresent(value -> Merger.merge(value, activities));
         entityManager.getTransaction().commit();
-        return userToUpdate.orElse(null);
+        return activitiesToUpdate.orElse(null);
     }
 
     @Override
-    public User delete(User user) {
-        entityManager.getTransaction().begin();
-        Optional<User> userToDelete = findById(user.getId());
-        userToDelete.ifPresent(value -> value.setStatus(UserStatus.DELETED));
-        entityManager.getTransaction().commit();
-        return userToDelete.orElse(null);
+    public Activities delete(Activities activities) {
+        return null;
     }
 
     @Override
-    public User remove(User user) {
+    public Activities remove(Activities activities) {
         entityManager.getTransaction().begin();
-        entityManager.remove(user);
+        entityManager.remove(activities);
         entityManager.getTransaction().commit();
-        return user;
+        return activities;
     }
 
     @Override
-    public Optional<List<User>> runQuery(String query) {
+    public Optional<List<Activities>> runQuery(String query) {
         entityManager.getTransaction().begin();
         Query query1 = entityManager.createQuery(query);
         entityManager.getTransaction().commit();
         return Optional.ofNullable(query1.getResultList());
     }
 
-    public void close(){
+    @Override
+    public void close() {
         laundryPersistentDao.close();
     }
-
 }

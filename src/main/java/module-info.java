@@ -13,6 +13,7 @@ module com.laundry.laundry {
     requires de.jensd.fx.glyphs.fontawesome;
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
+    requires bcrypt;
 
 
     exports com.laundry.laundry.model;

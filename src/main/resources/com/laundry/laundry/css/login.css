@@ -33,3 +33,8 @@
 .login-btn:hover{
     -fx-background-color: linear-gradient(to bottom left, #7e03c6, #e80ae4);
 }
+
+.warning-Msg{
+    -fx-background-color: #e16363;
+    -fx-alignment:center;
+}

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @SuppressWarnings("unchecked")
 public class EmployeeDao implements EmployeePersist {
-    LaundryPersistentDao laundryPersistentDao;
+    private final LaundryPersistentDao laundryPersistentDao;
     private final EntityManager entityManager;
 
     public EmployeeDao() {
@@ -48,8 +48,9 @@ public class EmployeeDao implements EmployeePersist {
     public Optional<List<Employee>> findBy(String columnName, String value, int resultMax) {
         entityManager.getTransaction().begin();
 
-        Query query = entityManager.createQuery("SELECT e FROM Employee e WHERE " + columnName + " = :value" + ((resultMax > 0 )?" LIMIT " + resultMax:""));
+        Query query = entityManager.createQuery("SELECT e FROM Employee e WHERE " + columnName + " = :value");
         query.setParameter("value", value);
+        if(resultMax > 0) query.setMaxResults(resultMax);
         return Optional.ofNullable(query.getResultList());
     }
 
@@ -59,6 +60,7 @@ public class EmployeeDao implements EmployeePersist {
 
         Query query = entityManager.createQuery("SELECT e FROM Employee e WHERE " + columnName + " = :value" + ((resultMax > 0 )?" LIMIT " + resultMax:""));
         query.setParameter("value", value);
+        if(resultMax > 0) query.setMaxResults(resultMax);
         return Optional.ofNullable(query.getResultList());
     }
 
@@ -66,8 +68,9 @@ public class EmployeeDao implements EmployeePersist {
     public Optional<List<Employee>> findBy(String columnName, int value, int resultMax) {
         entityManager.getTransaction().begin();
 
-        Query query = entityManager.createQuery("SELECT e FROM Employee e WHERE " + columnName + " = :value" + ((resultMax > 0 )?" LIMIT " + resultMax:""));
+        Query query = entityManager.createQuery("SELECT e FROM Employee e WHERE " + columnName + " = :value");
         query.setParameter("value", value);
+        if(resultMax > 0) query.setMaxResults(resultMax);
         return Optional.ofNullable(query.getResultList());
     }
 
@@ -75,8 +78,9 @@ public class EmployeeDao implements EmployeePersist {
     public Optional<List<Employee>> findBy(String columnName, Object value, int resultMax) {
         entityManager.getTransaction().begin();
 
-        Query query = entityManager.createQuery("SELECT e FROM Employee e WHERE " + columnName + " = :value" + ((resultMax > 0 )?" LIMIT " + resultMax:""));
+        Query query = entityManager.createQuery("SELECT e FROM Employee e WHERE " + columnName + " = :value");
         query.setParameter("value", value);
+        if(resultMax > 0) query.setMaxResults(resultMax);
         return Optional.ofNullable(query.getResultList());
     }
 

@@ -1,10 +1,16 @@
 package com.laundry.laundry.controller;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -19,6 +25,69 @@ public class LoginController implements Initializable {
 
     @FXML
     private AnchorPane root;
+    @FXML
+    private Button loginBtn;
+
+    @FXML
+    private FontAwesomeIconView loginSpinner;
+
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    private TextField password2;
+
+    @FXML
+    private FontAwesomeIconView showPassword;
+
+    @FXML
+    private TextField username;
+
+    @FXML
+    private Label warningMsg;
+
+//    String password = "1234";
+//    String bcryptHashString = BCrypt.withDefaults().hashToString(12, password.toCharArray());
+//// $2a$12$US00g/uMhoSBm.HiuieBjeMtoN69SN.GE25fCpldebzkryUyopws6
+//    ...
+//    BCrypt.Result result = BCrypt.verifyer().verify(password.toCharArray(), bcryptHashString);
+    // result.verified == true
+
+
+    @FXML
+    void login(MouseEvent event) {
+        loginSpinner.setVisible(true);
+        loginBtn.setDisable(true);
+        if(!username.getText().isBlank() &&
+                !(password.isVisible()?password.getText() : password2.getText()).isBlank()
+        ){
+
+        }else{
+            warningMsg.setText("All fields must be filled. Try again");
+            warningMsg.setVisible(true);
+            FadeTransition fadOutMsg = new FadeTransition(Duration.seconds(10), warningMsg);
+            fadOutMsg.setFromValue(1);
+            fadOutMsg.setToValue(0);
+            fadOutMsg.setCycleCount(1);
+            loginSpinner.setVisible(false);
+            loginBtn.setDisable(false);
+            fadOutMsg.play();
+        }
+    }
+
+    @FXML
+    void showPassword(MouseEvent event) {
+        if(password.isVisible()){
+            password2.setText(password.getText());
+            password2.setVisible(true);
+            password.setVisible(false);
+        }else{
+            password.setText(password2.getText());
+            password.setVisible(true);
+            password2.setVisible(false);
+        }
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

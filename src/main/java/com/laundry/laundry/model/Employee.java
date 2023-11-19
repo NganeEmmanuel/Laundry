@@ -34,8 +34,8 @@ public class Employee {
         this.address2 = address2;
         this.role = role;
         this.status = UserStatus.ACTIVE;
-        this.createdDate = createdDate;
-        this.lastUpdated = lastUpdated;
+        this.createdDate = new Date();
+        this.lastUpdated = this.createdDate;
     }
 
 
@@ -137,6 +137,7 @@ public class Employee {
                 ", address1='" + address1 + '\'' +
                 ", address2='" + address2 + '\'' +
                 ", role='" + role + '\'' +
+                ", status=" + status +
                 ", createdDate=" + createdDate +
                 ", lastUpdated=" + lastUpdated +
                 '}';

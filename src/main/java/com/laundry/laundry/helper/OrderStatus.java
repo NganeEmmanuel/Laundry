@@ -6,5 +6,6 @@ public enum OrderStatus {
     DRYING,
     IRONING,
     READY,
-    DELIVERED
+    DELIVERED,
+    DELETED
 }

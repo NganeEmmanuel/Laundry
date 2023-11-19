@@ -74,7 +74,7 @@
                      </font>
                   </Label>
                </children></AnchorPane>
-            <AnchorPane layoutX="313.0" layoutY="1.0" prefHeight="604.0" prefWidth="466.0">
+            <AnchorPane layoutX="313.0" layoutY="1.0" prefHeight="604.0" prefWidth="466.0" style="-fx-cursor: hand;">
                <children>
                   <Label layoutX="58.0" layoutY="25.0" styleClass="h1" stylesheets="@css/login.css" text="Sign In to your Account">
                      <font>
@@ -88,20 +88,28 @@
                   </Label>
                   <FontAwesomeIconView fill="#5f078f" glyphName="LOCK" layoutX="346.0" layoutY="50.0" size="22.0" />
                   <FontAwesomeIconView fill="#5f078f" glyphName="USER" layoutX="56.0" layoutY="167.0" size="18.0" />
-                  <TextField layoutX="159.0" layoutY="133.0" prefHeight="35.0" prefWidth="202.0" promptText="Enter username" styleClass="text-field" stylesheets="@css/login.css" />
+                  <TextField fx:id="username" layoutX="159.0" layoutY="133.0" prefHeight="35.0" prefWidth="202.0" promptText="Enter username" styleClass="text-field" stylesheets="@css/login.css" />
                   <Label layoutX="85.0" layoutY="222.0" text="Password">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
                   <FontAwesomeIconView fill="#5f078f" glyphName="KEY" layoutX="62.0" layoutY="238.0" size="18.0" />
-                  <PasswordField layoutX="159.0" layoutY="204.0" prefHeight="35.0" prefWidth="202.0" promptText="Enter password" styleClass="text-field" stylesheets="@css/login.css" />
+                  <PasswordField fx:id="password" layoutX="159.0" layoutY="204.0" prefHeight="35.0" prefWidth="202.0" promptText="Enter password" styleClass="text-field" stylesheets="@css/login.css" />
                   <CheckBox layoutX="65.0" layoutY="267.0" mnemonicParsing="false" text="Remember me" />
                   <Hyperlink layoutX="261.0" layoutY="264.0" styleClass="hyperlinks" stylesheets="@css/login.css" text="forgot password?" textFill="#5f078f" />
                   <Hyperlink layoutX="63.0" layoutY="312.0" styleClass="hyperlinks" stylesheets="@css/login.css" text="Privacy Policy" textFill="#5f078f" />
                   <Hyperlink layoutX="166.0" layoutY="312.0" styleClass="hyperlinks" stylesheets="@css/login.css" text="Terms of use" textFill="#5f078f" />
                   <Hyperlink layoutX="266.0" layoutY="312.0" styleClass="hyperlinks" stylesheets="@css/login.css" text="Create Account" textFill="#5f078f" />
-                  <Button layoutX="230.0" layoutY="370.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="126.0" styleClass="login-btn" stylesheets="@css/login.css" text="Login" />
+                  <Button fx:id="loginBtn" layoutX="230.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="35.0" prefWidth="126.0" styleClass="login-btn" stylesheets="@css/login.css" text="Login" />
+                  <FontAwesomeIconView fx:id="loginSpinner" disable="true" fill="WHITE" glyphName="SPINNER" layoutX="312.0" layoutY="393.0" size="17" visible="false" />
+                  <TextField fx:id="password2" layoutX="159.0" layoutY="204.0" prefHeight="36.0" prefWidth="202.0" promptText="Enter password" styleClass="text-field" stylesheets="@css/login.css" visible="false" />
+                  <FontAwesomeIconView fx:id="showPassword" fill="#5f078f" glyphName="EYE" layoutX="340.0" layoutY="227.0" onMouseClicked="#showPassword" />
+                  <Label fx:id="warningMsg" layoutX="66.0" layoutY="88.0" prefHeight="35.0" prefWidth="281.0" styleClass="warning-Msg" stylesheets="@css/login.css" text="warning!" textAlignment="CENTER" visible="false">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>

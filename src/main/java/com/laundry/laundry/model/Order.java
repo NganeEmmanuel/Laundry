@@ -28,9 +28,9 @@ public class Order {
     public Order(User user, Service service, Date orderDate, Date updatedDate, OrderStatus orderStatus, List<Employee> updatedBy) {
         this.user = user;
         this.service = service;
-        this.orderDate = orderDate;
-        this.updatedDate = updatedDate;
-        this.orderStatus = orderStatus;
+        this.orderDate = new Date();
+        this.updatedDate = this.orderDate;
+        this.orderStatus = OrderStatus.RECEIVED;
         this.updatedBy = updatedBy;
     }
 

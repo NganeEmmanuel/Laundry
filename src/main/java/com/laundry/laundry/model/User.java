@@ -4,6 +4,7 @@ import com.laundry.laundry.helper.Authority;
 import com.laundry.laundry.helper.UserStatus;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class User {
 
     public User(){}
 
-    public User(String name, String email, String password, String phoneNumber, String city, String address1, String address2, List<Authority> authority, Date createdDate, Date lastUpdated) {
+    public User(String name, String email, String password, String phoneNumber, String city, String address1, String address2, List<Authority> authority) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -39,10 +40,10 @@ public class User {
         this.city = city;
         this.address1 = address1;
         this.address2 = address2;
-        this.authority = authority;
+        this.authority = new ArrayList<>(Authority.USER.ordinal());
         this.status = UserStatus.ACTIVE;
-        this.createdDate = createdDate;
-        this.lastUpdated = lastUpdated;
+        this.createdDate = new Date();
+        this.lastUpdated = this.createdDate;
     }
 
 

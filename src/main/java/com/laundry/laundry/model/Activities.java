@@ -26,7 +26,7 @@ public class Activities {
         this.objectId = objectId;
         this.action = action;
         this.description = description;
-        this.actionDate = actionDate;
+        this.actionDate = new Date();
     }
 
     public long getId() {

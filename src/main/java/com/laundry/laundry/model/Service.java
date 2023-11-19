@@ -18,11 +18,11 @@ public class Service {
     private Date lastUpdated;
     public Service(){}
 
-    public Service(String name, ServiceStatus serviceStatus, Date createdDate, Date lastUpdated) {
+    public Service(String name) {
         this.name = name;
-        this.serviceStatus = serviceStatus;
-        this.createdDate = createdDate;
-        this.lastUpdated = lastUpdated;
+        this.serviceStatus = ServiceStatus.ACTIVE;
+        this.createdDate = new Date();
+        this.lastUpdated = this.createdDate;
     }
 
     public int getId() {

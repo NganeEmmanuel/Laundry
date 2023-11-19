@@ -4,7 +4,6 @@ import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -15,7 +14,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MainController implements Initializable {
+public class AppController implements Initializable {
 
     @FXML
     private AnchorPane root;
@@ -62,7 +61,7 @@ public class MainController implements Initializable {
 //                }
 //            });
         } catch (IOException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
