@@ -1,6 +1,7 @@
 package com.laundry.laundry.controller;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
+import com.laundry.laundry.model.Employee;
+import com.laundry.laundry.service.LoginService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
@@ -46,6 +47,8 @@ public class LoginController implements Initializable {
     @FXML
     private Label warningMsg;
 
+    private LoginService loginService = new LoginService();
+
 //    String password = "1234";
 //    String bcryptHashString = BCrypt.withDefaults().hashToString(12, password.toCharArray());
 //// $2a$12$US00g/uMhoSBm.HiuieBjeMtoN69SN.GE25fCpldebzkryUyopws6
@@ -61,18 +64,28 @@ public class LoginController implements Initializable {
         if(!username.getText().isBlank() &&
                 !(password.isVisible()?password.getText() : password2.getText()).isBlank()
         ){
-
+            Employee employee = loginService.login(username.getText(), password.getText());
+            if(employee != null){
+                //todo code for successful logging
+                //todo also figure out the activities logging mechanism
+            }else{
+                warning("Invalid user credentials. Please try again!!");
+            }
         }else{
-            warningMsg.setText("All fields must be filled. Try again");
-            warningMsg.setVisible(true);
-            FadeTransition fadOutMsg = new FadeTransition(Duration.seconds(10), warningMsg);
-            fadOutMsg.setFromValue(1);
-            fadOutMsg.setToValue(0);
-            fadOutMsg.setCycleCount(1);
-            loginSpinner.setVisible(false);
-            loginBtn.setDisable(false);
-            fadOutMsg.play();
+            warning("All fields must be filled. Try again!!");
         }
+    }
+
+    private void warning(String message) {
+        warningMsg.setText(message);
+        warningMsg.setVisible(true);
+        FadeTransition fadOutMsg = new FadeTransition(Duration.seconds(10), warningMsg);
+        fadOutMsg.setFromValue(1);
+        fadOutMsg.setToValue(0);
+        fadOutMsg.setCycleCount(1);
+        loginSpinner.setVisible(false);
+        loginBtn.setDisable(false);
+        fadOutMsg.play();
     }
 
     @FXML
