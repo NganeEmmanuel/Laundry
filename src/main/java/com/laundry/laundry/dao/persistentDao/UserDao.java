@@ -2,10 +2,12 @@ package com.laundry.laundry.dao.persistentDao;
 
 import com.laundry.laundry.dao.persistentInterfaces.entityPersist.UserPersist;
 import com.laundry.laundry.dao.persistentinit.LaundryPersistentDao;
-import com.laundry.laundry.helper.Merger;
-import com.laundry.laundry.helper.UserStatus;
+import com.laundry.laundry.helper.helper.Merger;
+import com.laundry.laundry.helper.status.UserStatus;
+import com.laundry.laundry.model.Employee;
 import com.laundry.laundry.model.User;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
 
 import java.util.List;
@@ -37,11 +39,15 @@ public class UserDao implements UserPersist {
     }
 
     @Override
-    public Optional<User> findBy(String columnName, String value) {
+    public User findBy(String columnName, String value) {
         entityManager.getTransaction().begin();
         Query query = entityManager.createQuery("SELECT u FROM users u WHERE " + columnName + " = :value");
         query.setParameter("value", value);
-        return (Optional<User>) query.getSingleResult();
+        try {
+            return (User) query.getSingleResult();
+        }catch (NoResultException n){
+            return null;
+        }
     }
 
     @Override
@@ -112,6 +118,18 @@ public class UserDao implements UserPersist {
         Query query1 = entityManager.createQuery(query);
         entityManager.getTransaction().commit();
         return Optional.ofNullable(query1.getResultList());
+    }
+
+    @Override
+    public User runQuerySingle(String query) {
+        entityManager.getTransaction().begin();
+        Query query1 =  entityManager.createQuery(query);
+        entityManager.getTransaction().commit();
+        try {
+            return (User) query1.getSingleResult();
+        }catch (NoResultException n){
+            return null;
+        }
     }
 
     public void close(){

@@ -1,4 +1,4 @@
-package com.laundry.laundry.helper;
+package com.laundry.laundry.helper.status;
 
 public enum ServiceStatus {
     ACTIVE,

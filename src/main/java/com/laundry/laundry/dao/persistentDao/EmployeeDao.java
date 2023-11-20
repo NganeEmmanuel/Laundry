@@ -2,10 +2,12 @@ package com.laundry.laundry.dao.persistentDao;
 
 import com.laundry.laundry.dao.persistentInterfaces.entityPersist.EmployeePersist;
 import com.laundry.laundry.dao.persistentinit.LaundryPersistentDao;
-import com.laundry.laundry.helper.Merger;
-import com.laundry.laundry.helper.UserStatus;
+import com.laundry.laundry.helper.helper.Merger;
+import com.laundry.laundry.helper.status.UserStatus;
 import com.laundry.laundry.model.Employee;
+import com.laundry.laundry.model.User;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
 
 import java.util.List;
@@ -37,12 +39,15 @@ public class EmployeeDao implements EmployeePersist {
     }
 
     @Override
-    public Optional<Employee> findBy(String columnName, String value) {
+    public Employee findBy(String columnName, String value) {
         entityManager.getTransaction().begin();
-
         Query query = entityManager.createQuery("SELECT e FROM employee e WHERE " + columnName + " = :value");
         query.setParameter("value", value);
-        return (Optional<Employee>) query.getSingleResult();
+        try {
+            return (Employee) query.getSingleResult();
+        }catch (NoResultException n){
+            return null;
+        }
     }
 
     public Optional<List<Employee>> findBy(String columnName, String value, int resultMax) {
@@ -116,6 +121,18 @@ public class EmployeeDao implements EmployeePersist {
         Query query1 =  entityManager.createQuery(query);
         entityManager.getTransaction().commit();
         return Optional.ofNullable(query1.getResultList());
+    }
+
+    @Override
+    public Employee runQuerySingle(String query) {
+        entityManager.getTransaction().begin();
+        Query query1 =  entityManager.createQuery(query);
+        entityManager.getTransaction().commit();
+        try {
+            return (Employee) query1.getSingleResult();
+        }catch (NoResultException n){
+            return null;
+        }
     }
 
     @Override

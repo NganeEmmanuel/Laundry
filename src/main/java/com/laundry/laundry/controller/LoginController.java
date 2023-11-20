@@ -1,11 +1,11 @@
 package com.laundry.laundry.controller;
 
+import com.laundry.laundry.helper.session.sessionClass.EmployeeSession;
 import com.laundry.laundry.model.Employee;
-import com.laundry.laundry.service.LoginService;
+import com.laundry.laundry.service.serviceClass.LoginService;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,12 +15,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class LoginController implements Initializable {
 
@@ -66,6 +62,8 @@ public class LoginController implements Initializable {
         ){
             Employee employee = loginService.login(username.getText(), password.getText());
             if(employee != null){
+                EmployeeSession employeeSession = EmployeeSession.getInstace();
+                System.out.println(employeeSession.getEmployee());
                 //todo code for successful logging
                 //todo also figure out the activities logging mechanism
             }else{

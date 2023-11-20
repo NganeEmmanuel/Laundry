@@ -2,10 +2,13 @@ package com.laundry.laundry.dao.persistentDao;
 
 import com.laundry.laundry.dao.persistentInterfaces.entityPersist.ServicePersist;
 import com.laundry.laundry.dao.persistentinit.LaundryPersistentDao;
-import com.laundry.laundry.helper.Merger;
-import com.laundry.laundry.helper.ServiceStatus;
+import com.laundry.laundry.helper.helper.Merger;
+import com.laundry.laundry.helper.status.ServiceStatus;
+import com.laundry.laundry.model.Employee;
 import com.laundry.laundry.model.Service;
+import com.laundry.laundry.model.User;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
 
 import java.util.List;
@@ -34,11 +37,15 @@ public class ServiceDao implements ServicePersist {
     }
 
     @Override
-    public Optional<Service> findBy(String columnName, String value) {
+    public Service findBy(String columnName, String value) {
         entityManager.getTransaction().begin();
         Query query = entityManager.createQuery("SELECT s FROM service s WHERE " + columnName + " = :value");
         query.setParameter("value", value);
-        return (Optional<Service>) query.getSingleResult();
+        try {
+            return (Service) query.getSingleResult();
+        }catch (NoResultException n){
+            return null;
+        }
     }
 
     @Override
@@ -109,6 +116,18 @@ public class ServiceDao implements ServicePersist {
         Query query1 = entityManager.createQuery(query);
         entityManager.getTransaction().commit();
         return Optional.ofNullable(query1.getResultList());
+    }
+
+    @Override
+    public Service runQuerySingle(String query) {
+        entityManager.getTransaction().begin();
+        Query query1 =  entityManager.createQuery(query);
+        entityManager.getTransaction().commit();
+        try {
+            return (Service) query1.getSingleResult();
+        }catch (NoResultException n){
+            return null;
+        }
     }
 
     @Override

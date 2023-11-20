@@ -17,11 +17,13 @@ module com.laundry.laundry {
 
 
     exports com.laundry.laundry.model;
-    exports com.laundry.laundry.helper;
+//    exports com.laundry.laundry.helper;
     opens com.laundry.laundry.model;
     opens com.laundry.laundry;
 //    opens com.laundry.laundry to javafx.fxml;
     exports com.laundry.laundry;
     exports com.laundry.laundry.controller;
     opens com.laundry.laundry.controller to javafx.fxml;
+    exports com.laundry.laundry.helper.status;
+    exports com.laundry.laundry.helper.helper;
 }

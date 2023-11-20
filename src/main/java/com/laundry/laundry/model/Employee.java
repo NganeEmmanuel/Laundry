@@ -1,6 +1,6 @@
 package com.laundry.laundry.model;
 
-import com.laundry.laundry.helper.UserStatus;
+import com.laundry.laundry.helper.status.UserStatus;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -9,10 +9,16 @@ import java.util.Date;
 public class Employee {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String name;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+    private String username;
     private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
+    private String password;
     private String city;
     private String address1;
     private String address2;
@@ -25,10 +31,13 @@ public class Employee {
     @Column(name = "last_updated")
     private Date lastUpdated;
     public Employee() {}
-    public Employee(String name, String email, String phoneNumber, String city, String address1, String address2, String role, Date createdDate, Date lastUpdated) {
-        this.name = name;
+    public Employee(String firstName, String lastName, String username, String email, String phoneNumber, String city, String address1, String address2, String role,String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.password = password;
         this.city = city;
         this.address1 = address1;
         this.address2 = address2;
@@ -38,7 +47,6 @@ public class Employee {
         this.lastUpdated = this.createdDate;
     }
 
-
     public long getId() {
         return id;
     }
@@ -47,12 +55,28 @@ public class Employee {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -73,6 +97,14 @@ public class Employee {
 
     public String getCity() {
         return city;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setCity(String city) {
@@ -130,9 +162,12 @@ public class Employee {
     public String toString() {
         return "Employee{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", password='" + password + '\'' +
                 ", city='" + city + '\'' +
                 ", address1='" + address1 + '\'' +
                 ", address2='" + address2 + '\'' +

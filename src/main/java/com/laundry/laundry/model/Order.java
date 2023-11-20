@@ -1,6 +1,6 @@
 package com.laundry.laundry.model;
 
-import com.laundry.laundry.helper.OrderStatus;
+import com.laundry.laundry.helper.status.OrderStatus;
 import jakarta.persistence.*;
 
 import java.util.Date;

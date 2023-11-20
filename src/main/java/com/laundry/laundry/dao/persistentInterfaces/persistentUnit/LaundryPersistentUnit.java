@@ -28,11 +28,10 @@ public interface LaundryPersistentUnit <T> {
     /**
      *
      * @param columnName name of column you want to filter your search by, e.g., name, age, DoB
-     *      * @param value String value of the actual information you want to filter for
-     *      * @param resultMax The maximum number of result you want to retrieve from the database. set to zero (0) to return all results found
-     *      * @return returns a single record from the table
+     * @param value String value of the actual information you want to filter for
+     * @return returns a single record from the table
      */
-    public Optional<T>findBy(String columnName, String value);
+    public T findBy(String columnName, String value);
 
     /**
      *
@@ -94,9 +93,16 @@ public interface LaundryPersistentUnit <T> {
     /**
      *
      * @param query query to  be executed e.g., ("select u from users u where u.id = 1")
-     * @return  an object of the class type
+     * @return  a list of objects of the class type
      */
     public Optional<List<T>> runQuery(String query);
+
+    /**
+     *
+     * @param query query to  be executed e.g., ("select u from users u where u.id = 1")
+     * @return a single objects of the class type
+     */
+    public T runQuerySingle(String query);
     public void close();
 
 }

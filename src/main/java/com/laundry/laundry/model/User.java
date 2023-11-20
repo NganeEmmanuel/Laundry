@@ -1,7 +1,7 @@
 package com.laundry.laundry.model;
 
-import com.laundry.laundry.helper.Authority;
-import com.laundry.laundry.helper.UserStatus;
+import com.laundry.laundry.helper.status.Authority;
+import com.laundry.laundry.helper.status.UserStatus;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
