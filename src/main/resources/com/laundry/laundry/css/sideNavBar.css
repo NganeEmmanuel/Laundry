@@ -1,0 +1,17 @@
+.side-nav{
+    -fx-background-color: linear-gradient(to top right, #a900fa, #7e03c6)
+}
+.nav-btn{
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: linear-gradient(to top right, #a900fa, #fff);
+    -fx-cursor: hand;
+    -fx-border-radius: 4px;
+}
+.nav-btn:hover, .signout-btn:hover{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0);
+    -fx-background-color: linear-gradient(to top right, #a900fa, #7e03c6);
+}
+.signout-btn{
+    -fx-cursor: hand;
+    -fx-border-radius: 4px;
+}

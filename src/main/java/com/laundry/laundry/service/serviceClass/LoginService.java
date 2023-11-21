@@ -15,7 +15,7 @@ public class LoginService implements UserManager<Employee> {
     public Employee login(String username, String password) {
         String encryptedPassword = BCrypt.withDefaults().hashToString(12, password.toCharArray());
         System.out.println(encryptedPassword);
-        String query = "SELECT e FROM Employee e WHERE name = '" + username + "'";
+        String query = "SELECT e FROM Employee e WHERE username = '" + username + "'";
         Employee employee =  employeeDao.runQuerySingle(query);
         if(employee == null || !BCrypt.verifyer().verify(password.toCharArray(),
                 employee.getPassword()).verified) return null;

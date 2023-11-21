@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="609.0" prefWidth="223.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.laundry.laundry.controller.SideNavBarController">
+   <children>
+      <AnchorPane layoutX="12.0" layoutY="43.0" prefHeight="609.0" prefWidth="223.0" styleClass="side-nav" stylesheets="@css/sideNavBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Separator layoutX="12.0" layoutY="100.0" prefWidth="200.0" />
+            <Label layoutX="12.0" layoutY="145.0" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView disable="true" glyphName="DASHBOARD" size="30" viewOrder="20.0">
+                     <fill>
+                        <LinearGradient endX="0.6350710900473934" endY="0.7014218009478672" startX="0.14691943127962084">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.7286666631698608" blue="0.23000000417232513" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.9599999785423279" green="0.8679314255714417" blue="0.451200008392334" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIconView>
+               </graphic>
+            </Label>
+            <Label layoutX="12.0" layoutY="204.0" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Orders" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView disable="true" glyphName="SHOPPING_CART" size="30">
+                     <fill>
+                        <LinearGradient endX="0.6350710900473934" endY="0.7014218009478672" startX="0.14691943127962084">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.7286666631698608" blue="0.23000000417232513" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.9599999785423279" green="0.8679314255714417" blue="0.451200008392334" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIconView>
+               </graphic>
+            </Label>
+            <Label layoutX="14.0" layoutY="265.0" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Employee" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView disable="true" glyphName="USER" size="30">
+                     <fill>
+                        <LinearGradient endX="0.6350710900473934" endY="0.7014218009478672" startX="0.14691943127962084">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.7286666631698608" blue="0.23000000417232513" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.9599999785423279" green="0.8679314255714417" blue="0.451200008392334" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIconView>
+               </graphic>
+            </Label>
+            <Label layoutX="14.0" layoutY="324.0" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Customers" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView disable="true" glyphName="USERS" size="30">
+                     <fill>
+                        <LinearGradient endX="0.6350710900473934" endY="0.7014218009478672" startX="0.14691943127962084">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.7286666631698608" blue="0.23000000417232513" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.9599999785423279" green="0.8679314255714417" blue="0.451200008392334" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIconView>
+               </graphic>
+            </Label>
+            <Label layoutX="14.0" layoutY="390.0" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Customers" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView disable="true" glyphName="CLIPBOARD" size="30">
+                     <fill>
+                        <LinearGradient endX="0.6350710900473934" endY="0.7014218009478672" startX="0.14691943127962084">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.7286666631698608" blue="0.23000000417232513" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.9599999785423279" green="0.8679314255714417" blue="0.451200008392334" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIconView>
+               </graphic>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="148.0" layoutX="46.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" y="-7.0">
+               <image>
+                  <Image url="@image/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="27.0" layoutY="69.0" prefHeight="27.0" prefWidth="161.0" text="IMPRESS PRESSING">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.9210526347160339" green="0.6901498436927795" blue="0.19188596308231354" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="0.8833333253860474" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Separator layoutX="14.0" layoutY="537.0" prefWidth="200.0" />
+            <Label layoutX="14.0" layoutY="551.0" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 10;" styleClass="signout-btn" stylesheets="@css/sideNavBar.css" text="Signout" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView disable="true" glyphName="SIGN_OUT" size="40">
+                     <fill>
+                        <LinearGradient endX="0.6350710900473934" endY="0.7014218009478672" startX="0.14691943127962084">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.7286666631698608" blue="0.23000000417232513" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.9599999785423279" green="0.8679314255714417" blue="0.451200008392334" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIconView>
+               </graphic>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
