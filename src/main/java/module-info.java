@@ -17,7 +17,8 @@ module com.laundry.laundry {
 
 
     exports com.laundry.laundry.model;
-//    exports com.laundry.laundry.helper;
+//    exports com.laundry.laundry.helper.session.sessionClass;
+//    opens com.laundry.laundry.service.serviceClass;
     opens com.laundry.laundry.model;
     opens com.laundry.laundry;
 //    opens com.laundry.laundry to javafx.fxml;

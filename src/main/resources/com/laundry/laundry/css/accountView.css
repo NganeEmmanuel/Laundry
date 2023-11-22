@@ -1,0 +1,42 @@
+.main-header{
+    -fx-background-color: #fff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.1), 8, 0, 0, 0);
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+.header-caption{
+    -fx-background-color: linear-gradient(to top right, #a900fa, #7e03c6);
+}
+.user-image-view{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.2), 8, 0, 0, 0);
+    -fx-background-color: #fff;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+}
+ .text-field{
+     -fx-background-color: #fff;
+     -fx-background-insets: 0 0 1 0;
+     -fx-border-width: 0px 0px 0px 0px;
+ }
+ .combo-search{
+    -fx-background-color: #fff;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-width: 0 1 0 0px;
+    -fx-border-color: lightgrey;
+ }
+ .filter-option{
+    -fx-border-width: 0 0 0 1px;
+    -fx-border-color: lightgrey;
+ }
+ .filter-applyBtn{
+    -fx-border-width: 0 0 0 0px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.2), 8, 0, 0, 0);
+    -fx-background-color: linear-gradient(to top right, #a900fa, #7e03c6);
+    -fx-border-radius: 3px;
+    -fx-text-fill: #fff;
+    -fx-cursor: hand;
+ }
+ .filter-applyBtn:hover{
+     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.5), 8, 0, 0, 0);
+     -fx-background-color: linear-gradient(to top left, #a900fa, #7e03c6);
+  }

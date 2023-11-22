@@ -11,13 +11,12 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="609.0" prefWidth="223.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.laundry.laundry.controller.SideNavBarController">
    <children>
       <AnchorPane layoutX="12.0" layoutY="43.0" prefHeight="609.0" prefWidth="223.0" styleClass="side-nav" stylesheets="@css/sideNavBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Separator layoutX="12.0" layoutY="100.0" prefWidth="200.0" />
-            <Label layoutX="12.0" layoutY="145.0" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Dashboard" textFill="WHITE">
+            <Separator layoutX="14.0" layoutY="117.0" prefWidth="200.0" />
+            <Label fx:id="dashboardBtn" layoutX="12.0" layoutY="145.0" onMouseClicked="#showDashboard" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Dashboard" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="17.0" />
                </font>
@@ -42,7 +41,7 @@
                   </FontAwesomeIconView>
                </graphic>
             </Label>
-            <Label layoutX="12.0" layoutY="204.0" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Orders" textFill="WHITE">
+            <Label fx:id="ordersBtn" layoutX="12.0" layoutY="204.0" onMouseClicked="#showOrders" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Orders" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="17.0" />
                </font>
@@ -67,7 +66,7 @@
                   </FontAwesomeIconView>
                </graphic>
             </Label>
-            <Label layoutX="14.0" layoutY="265.0" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Employee" textFill="WHITE">
+            <Label fx:id="employeesbtn" layoutX="14.0" layoutY="265.0" onMouseClicked="#showEmployees" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Employees" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="17.0" />
                </font>
@@ -92,7 +91,7 @@
                   </FontAwesomeIconView>
                </graphic>
             </Label>
-            <Label layoutX="14.0" layoutY="324.0" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Customers" textFill="WHITE">
+            <Label fx:id="customersbtn" layoutX="14.0" layoutY="324.0" onMouseClicked="#showCustomers" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Customers" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="17.0" />
                </font>
@@ -117,7 +116,7 @@
                   </FontAwesomeIconView>
                </graphic>
             </Label>
-            <Label layoutX="14.0" layoutY="390.0" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Customers" textFill="WHITE">
+            <Label fx:id="activitiesBtn" layoutX="14.0" layoutY="390.0" onMouseClicked="#showActivities" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 0 0 0 10;" styleClass="nav-btn" stylesheets="@css/sideNavBar.css" text="Activities" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="17.0" />
                </font>
@@ -147,7 +146,7 @@
                   <Image url="@image/logo.png" />
                </image>
             </ImageView>
-            <Label layoutX="27.0" layoutY="69.0" prefHeight="27.0" prefWidth="161.0" text="IMPRESS PRESSING">
+            <Label layoutX="27.0" layoutY="76.0" prefHeight="27.0" prefWidth="161.0" text="IMPRESS PRESSING">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>
@@ -168,8 +167,8 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Separator layoutX="14.0" layoutY="537.0" prefWidth="200.0" />
-            <Label layoutX="14.0" layoutY="551.0" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 10;" styleClass="signout-btn" stylesheets="@css/sideNavBar.css" text="Signout" textFill="WHITE">
+            <Separator layoutX="14.0" layoutY="537.0" prefWidth="200.0" AnchorPane.bottomAnchor="69.0" />
+            <Label fx:id="signout" layoutX="14.0" layoutY="551.0" onMouseClicked="#signout" prefHeight="45.0" prefWidth="200.0" style="-fx-label-padding: 10;" styleClass="signout-btn" stylesheets="@css/sideNavBar.css" text="Signout" textFill="WHITE" AnchorPane.bottomAnchor="13.0">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
